@@ -1,17 +1,22 @@
 {
-  "name": "get_users",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "compile:prod": "node build.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "aws-sdk": "^2.1686.0",
-    "typescript": "^5.5.4"
-  }
+	"name": "get_users",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"compile:prod": "node build.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@aws-sdk/client-dynamodb": "^3.637.0",
+		"@aws-sdk/lib-dynamodb": "^3.637.0",
+		"aws-lambda": "^1.0.7",
+		"aws-sdk": "^2.1686.0",
+		"esbuild": "^0.23.1",
+		"esbuild-node-externals": "^1.14.0",
+		"typescript": "^5.5.4"
+	}
 }
