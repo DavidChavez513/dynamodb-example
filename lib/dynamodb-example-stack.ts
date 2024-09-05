@@ -16,7 +16,7 @@ export class DynamodbExampleStack extends cdk.Stack {
 			{
 				partitionKey: {
 					name: 'id',
-					type: dynamodb.AttributeType.STRING
+					type: dynamodb.AttributeType.NUMBER
 				},
 				readCapacity: 2,
 				writeCapacity: 2
@@ -52,6 +52,11 @@ export class DynamodbExampleStack extends cdk.Stack {
 				}
 			}
 		);
+
+
+		// Grant permissions to the lambda function to access the DynamoDB table
+		exampleTable.grantReadWriteData(userRegister);
+		exampleTable.grantReadWriteData(getUsers);
 
 
 		// Create API Rest from request response process

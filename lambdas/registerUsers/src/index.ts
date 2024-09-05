@@ -16,17 +16,23 @@ export const handler = async (event: APIGatewayEvent) => {
 	const dynamodb = new aws.DynamoDB.DocumentClient();
 
 	try {
+
+		const body = JSON.parse(event.body || '{}');
+
+		console.info('Event: ', event.body);
+
+		
 		const {
 			id,
 			name,
 			lastName
-		} = event.body as User;
+		} = body as User;
 
-		const document = event.body as User
+		const document = body as User
 
 		const tableName = process.env.SAMPLE_TABLE || '';
 
-		console.info(`User info: ID => ${id} \n Name => ${name} \n Last name => ${lastName}`)
+		console.info(`User info: ${document}`)
 
 		const params = {
 			RequestItems: {
@@ -57,6 +63,9 @@ export const handler = async (event: APIGatewayEvent) => {
 		}
 
 	} catch (error) {
+
+		console.error('Error: ', error);
+
 		throw Error('Hubo un error al guardar o leer los datos en DynamoDB')
 	}
 };
