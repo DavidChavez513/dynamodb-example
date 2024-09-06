@@ -68,7 +68,9 @@ export class DynamodbExampleStack extends cdk.Stack {
 			}
 		);
 
-		API.root.addMethod('GET', new apigateway.LambdaIntegration(getUsers));
+		const users = API.root.addResource('users');
+
+		users.addMethod('POST', new apigateway.LambdaIntegration(getUsers));
 		API.root.addMethod('POST', new apigateway.LambdaIntegration(userRegister));
 
 
