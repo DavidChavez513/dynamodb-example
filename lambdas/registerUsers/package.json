@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile:prod": "node build.js"
+    "compile:prod": "node build.js",
+	"dev": "esbuild --bundle --platform=node --target=node14 --outdir=dist --watch src/local.ts",
+	"build": "esbuild --bundle --platform=node --target=node14 --outdir=dist src/index.ts"
   },
   "keywords": [],
   "author": "",
